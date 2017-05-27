@@ -14,3 +14,13 @@
 # Maven
 log/
 target/
+
+target
+build
+.gradle
+.classpath
+.project
+.settings
+.env
+
+/bin/

@@ -1,9 +1,8 @@
 package chocoasaservice.api;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
+import chocoasaservice.entities.Problem;
+
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 /**
@@ -12,8 +11,11 @@ import javax.ws.rs.core.Response;
 @Path("/problem")
 public class ProblemService {
 	@POST
-	public Response postProblem() {
-		return Response.status(200).build();
+	@Consumes("application/xml")
+	@Produces("application/json")
+	public String postProblem(String xml) {
+		Problem pb = new Problem(xml);
+		return "{ text: " + xml + " }";
 	}
 
 	@GET
